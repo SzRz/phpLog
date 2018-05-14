@@ -5,6 +5,7 @@ use RuntimeException;
 /**
  * Log class based on https://github.com/katzgrau/KLogger
  * maded by Kenny Katzgrau <katzgrau@gmail.com>
+ * IMPORTANT : Change dir to yours in line 61
  *
  * @author  Mateusz Jaszkiewicz
  * @since   14.05.2018
@@ -29,6 +30,7 @@ class Log
      */
     protected static $logLevelThreshold = 'success';
 
+    // Higher number makes more logs
     protected static $logLevels = array(
       'off'     => 0,
       'access'  => 1,
@@ -57,9 +59,9 @@ class Log
      */
     private static function prepare(array $options = array())
     {
-        $logDirectory = \Config\Website\Config::$logdir;
-        self::$options['filename'] = \Config\Website\Config::$logfile;
-        self::$logLevelThreshold = \Config\Website\Config::$loglevel;
+        $logDirectory = __DIR__; // Type your log dir here
+        self::$options['filename'] = false; // Type here your log file name
+        self::$logLevelThreshold = 4; // Default log level
         self::$options = array_merge(self::$options, $options);
         $logDirectory = rtrim($logDirectory, DIRECTORY_SEPARATOR);
         if ( ! file_exists($logDirectory)) {
