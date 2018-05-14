@@ -1,5 +1,5 @@
 <?php
-namespace Tools;
+//namespace yourNamespace;
 use DateTime;
 use RuntimeException;
 /**
@@ -24,7 +24,7 @@ class Log
     private static $logFilePath;
 
     /**
-     * Obecny minimalny stopien logowania
+     * Current minimal log Threshold
      * @var integer
      */
     protected static $logLevelThreshold = 'success';
@@ -38,7 +38,7 @@ class Log
     );
 
     /**
-     * Uchwyt do instancji pliku logów
+     * Handle to a log file
      * @var resource
      */
     private static $fileHandle;
